@@ -9,12 +9,9 @@ const ContactList = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  const getViewContacts = contacts.filter(contact => {
-    if (contact.name && filter) {
-      return contact.name.toLowerCase().includes(filter.toLowerCase());
-    }
-    return false;
-  });
+  const getViewContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   useEffect(() => {
     dispatch(getContacts());
